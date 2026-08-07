@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Josefin+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+
+   /* fonts */
+
+  --font-prata: "Prata", serif;
+  --font-josefin: "Josefin Sans", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+
+
+  /* colors */
+
+    --color-navy-deep : #253279;
+    --color-grey-brown : #705525;
+    --color-light-blue : #E9EAF0;
+    --color-light-orange : #F0EDE8;
+    --color-light-azure : #E9EEF0;
+
+
+
+}
