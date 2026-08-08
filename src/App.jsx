@@ -1,5 +1,12 @@
 
 import './App.css'
+import Footer from './components/layout/footer';
+import Navbar from './components/layout/navbar';
+import About from './components/section/About';
+import Contact from './components/section/Contact';
+import Hero from './components/section/Hero';
+import Projects from './components/section/Projects';
+import Skills from './components/section/Skills';
 
 
 
@@ -8,7 +15,13 @@ function App() {
 
   return (
     <>
-     <h2 className='text-black-200 font-roboto text-xl'>MAIN component</h2>
+    <Navbar/>
+    <Hero/>
+    <About/>
+    <Skills/>
+    <Projects/>
+    <Contact/>
+    <Footer/>
     </>
   )
 }
