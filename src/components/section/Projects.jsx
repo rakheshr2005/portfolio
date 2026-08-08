@@ -8,12 +8,12 @@ function Projects(){
 
     return(
        
-    <div className='p-24 bg-light-azure pb-20 '>
+    <div className='xl:p-24 p-10 bg-light-azure xl:pb-20 '>
         <p className='text-xs mb-7'><Dot className='inline text-navy-deep '/>SELECTED WORK</p>
         
         <h1 className="text-5xl font-prata mb-7">Projects i have built</h1>
         <p className='font-josefin text-2xl font-light text-grey-brown mb-12'>a mix of full stck builds , all built on the mern</p>
-        <div className='flex flex-wrap mr-5 mb-5'>
+        <div className='xl:flex sm:grid grid-cols-2  xl:flex-wrap  xl:mr-5 xl:mb-5 max-sm:grid max-sm:grid-cols-1 '>
          {projectsData.map((project)=>{
           return(
             <ProjectCard heading={project.heading} Desription={project.description} skills={project.skills}/>

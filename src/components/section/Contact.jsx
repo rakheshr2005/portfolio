@@ -8,11 +8,11 @@ import { ArrowUpRight, Dot ,Mail,} from 'lucide-react';
 function Contact(){
 
     return(
-    <div className='grid grid-cols-2 p-24 bg-light-azure pb-20'>
+    <div className='grid max-sm:grid-cols-1 grid-cols-2 max-xl:gap-7 xl:grid-cols-2 xl:p-24 p-12 bg-light-azure pb-20'>
         <div className=' '>
             <p className='text-xs mb-7'><Dot className='inline text-navy-deep '/>GET IN TOUCH</p>
-            <h1 className="text-5xl font-prata mb-7">Lets build something</h1>
-            <p className='font-josefin text-2xl font-light text-grey-brown mb-12'>Have a project in mind or just want to talk? my inbox is open</p>
+            <h1 className="xl:text-5xl text-4xl font-prata mb-7">Lets build something</h1>
+            <p className='font-josefin xl:text-2xl text-xl max-sm:text-lg font-light text-grey-brown mb-12'>Have a project in mind or just want to talk? my inbox is open</p>
             <p className='flex flex-row font-josefin'><Mail/>&nbsp;rrakhesh2005@gmail.com</p> <hr className='mb-5'/>
             <p className='font-josefin'><i className="fa-brands fa-github "></i>&nbsp;github.com/rakheshr</p> <hr className='mb-5'/>
             <p className='font-josefin'><i className="fa-brands fa-linkedin-in "></i>&nbsp;linkedin.com/in/rakheshr</p> <hr className='mb-5'/>
@@ -28,7 +28,7 @@ function Contact(){
                         <label htmlFor="message" className='text-sm'>MESSAGE</label>
                         <textarea name="message" id="message" placeholder='Tell Me About Your Project' className='border-2 border-grey-brown w-full h-32 rounded-lg '></textarea>
                         <div className='flex justify-center mt-3 '>
-                            <button className='flex flex-row font-josefin bg-black rounded-3xl text-white h-12 w-1/2 justify-center items-center'>send message <ArrowUpRight/></button>
+                            <button className='flex flex-row font-josefin bg-black rounded-3xl text-white xl:h-12 xl:w-1/2 p-2 max-sm:text-sm justify-center items-center'>send message <ArrowUpRight /></button>
                         </div>
                     </form>
                 </div>
