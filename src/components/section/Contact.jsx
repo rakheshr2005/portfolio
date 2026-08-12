@@ -1,5 +1,9 @@
-
+import {motion} from 'motion/react'
 import { ArrowUpRight, Dot ,Mail,} from 'lucide-react';
+import { useRef } from 'react';
+
+import emailjs from '@emailjs/browser';
+
 
 
 
@@ -7,8 +11,34 @@ import { ArrowUpRight, Dot ,Mail,} from 'lucide-react';
 
 function Contact(){
 
+const form = useRef();
+
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          alert('message sent successfully');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+    
+
     return(
-    <div className='grid max-sm:grid-cols-1 grid-cols-2 max-xl:gap-7 xl:grid-cols-2 xl:p-24 p-12 bg-light-azure pb-20'>
+    <div id='contact' className='grid max-sm:grid-cols-1 grid-cols-2 max-xl:gap-7 xl:grid-cols-2 xl:p-24 p-12 bg-light-azure pb-20'>
         <div className=' '>
             <p className='text-xs mb-7'><Dot className='inline text-navy-deep '/>GET IN TOUCH</p>
             <h1 className="xl:text-5xl text-4xl font-prata mb-7">Lets build something</h1>
@@ -19,22 +49,27 @@ function Contact(){
         </div>
 
             <div className='flex justify-center items-center '>
-                <div className='w-120 border-2 p-10 rounded-2xl'>
-                    <form action="">
-                        <label htmlFor="name" className='text-sm'>NAME</label>
-                        <input type="text" name="name" id="name" placeholder="Your Name" className='border-2 border-grey-brown w-full rounded-lg h-12 flex items-start justify-baseline'/><br /><br />
-                        <label htmlFor="email" className='text-sm'>EMAIL</label>
-                        <input type="email" name="email" id="email" placeholder="You@example.com" className='border-2 border-grey-brown w-full h-12 rounded-lg' /><br /><br />
-                        <label htmlFor="message" className='text-sm'>MESSAGE</label>
-                        <textarea name="message" id="message" placeholder='Tell Me About Your Project' className='border-2 border-grey-brown w-full h-32 rounded-lg '></textarea>
-                        <div className='flex justify-center mt-3 '>
-                            <button className='flex flex-row font-josefin bg-black rounded-3xl text-white xl:h-12 xl:w-1/2 p-2 max-sm:text-sm justify-center items-center'>send message <ArrowUpRight /></button>
-                        </div>
-                    </form>
-                </div>
+                
+                    <div className='w-120 border-2 p-10 rounded-2xl'>
+                            <form action="" onSubmit={sendEmail} ref={form}>
+                                <label htmlFor="name" className='max-lg:text-xs'>NAME</label>
+                                <input type="text" name="from_name" id="name" placeholder="Your Name" className='border-2 border-grey-brown w-full rounded-lg xl:h-12 flex items-start justify-baseline max-lg:text-sm'/><br /><br />
+                                <label htmlFor="email" className='max-lg:text-xs'>EMAIL</label>
+                                <input type="email" name="from_email" id="email" placeholder="You@example.com" className='border-2 border-grey-brown w-full xl:h-12 rounded-lg max-lg:text-sm' /><br /><br />
+                                <label htmlFor="message" className='max-lg:text-xs'>MESSAGE</label>
+                                <textarea name="message" id="message" placeholder='Tell Me About Your Project' className='border-2 border-grey-brown w-full xl:h-32 rounded-lg max-lg:text-xs '></textarea>
+                                <div className='flex justify-center mt-3 '>
+                                    <motion.button type='submit'
+                                    whileHover={{scale:1.05,opacity:1.0,color:'white'}}
+                                    whileTap={{scale:0.95}}
+                                    className='flex flex-row font-josefin bg-navy-deep rounded-3xl text-white xl:h-12 xl:w-1/2 p-2 max-lg:text-sm justify-center items-center'>send message <ArrowUpRight  size={13}/></motion.button>
+                                </div>
+                            </form>
+                    </div>
+                
             </div>
         
-    </div>
+        </div>
     )
 }
 

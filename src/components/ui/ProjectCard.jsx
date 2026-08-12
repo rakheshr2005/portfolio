@@ -10,10 +10,10 @@ function ProjectCard({heading,Desription,skills}){
                 <div className="font-prata text-lg font-bold flex flex-row">{heading}<ArrowUpRight/></div>
                 <p className="text-sm font-josefin font-light">{Desription}</p>
                 <ul className="flex flex-wrap pt-2 text-white text-sm font-light ">
-                {skills.map((skill)=>{
+                {skills.map((skill,key)=>{
                     return(
-                <div className="text-xs">
-                    <li className="mr-2 flex flex-row "><Dot/>{skill}</li>
+                <div className="text-xs" key={key}>
+                    <li className="mr-2 flex flex-row " key={key}><Dot/>{skill}</li>
                 </div>)
                 })}
                 </ul>
