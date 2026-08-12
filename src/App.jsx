@@ -1,7 +1,7 @@
 
 import './App.css'
-import Footer from './components/layout/footer';
-import Navbar from './components/layout/navbar';
+import Footer from './components/layout/Footer';
+import Navbar from './components/layout/Navbar';
 import About from './components/section/About';
 import Contact from './components/section/Contact';
 import Hero from './components/section/Hero';
