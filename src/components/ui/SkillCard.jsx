@@ -1,11 +1,17 @@
 
-
+import { easeOut, motion } from "motion/react";
 
 function SkillCard({num,heading,description,skills}){
 
     return(
-        <div className="xl:min-h-60 xl:w-1/4 sm:w-1/3  bg-light-orange flex items-center mt-7 justify-between max-sm:w-full ">
-        <div className=" p-5 rounded-2xl border border-grey-brown xl:min-h-72 mr-5 shadow-sm sm:min-h-64 shadow-black max-sm:min-w-full  sm:h-fit ">
+        <motion.div
+
+        initial={{opacity:0,y:200}}
+        whileInView={{opacity:1,y:0}}
+        transition={{duration:0.6,ease:easeOut}}
+        
+        className="xl:min-h-60 xl:w-1/4 sm:w-1/3  flex items-center mt-7 justify-between max-sm:w-full ">
+        <div className=" bg-light-blue p-5 rounded-2xl border border-grey-brown xl:min-h-72 mr-5 shadow-sm sm:min-h-64 shadow-black max-sm:min-w-full  sm:h-fit ">
             <p className="font-roboto xl:text-xs pb-3 ">{num}</p>
             <h2 className="font-prata xl:text-2xl pb-3">{heading}</h2>
             <p className="text-lg font-josefin pb-3 text-grey-brown/70 font-light max-sm:text-xs max-lg:text-sm">{description}</p>
@@ -17,7 +23,7 @@ function SkillCard({num,heading,description,skills}){
             })}
             </div>
         </div>
-    </div>
+    </motion.div>
     )
 }
 

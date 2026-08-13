@@ -20,6 +20,10 @@ const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
 
+    if(!form.current.from_name.value || !form.current.from_email.value ||!form.current.message.value){
+      return alert('some fields are missing');
+    }
+
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
         publicKey: PUBLIC_KEY,
@@ -38,17 +42,27 @@ const form = useRef();
     
 
     return(
-    <div id='contact' className='grid max-sm:grid-cols-1 grid-cols-2 max-xl:gap-7 xl:grid-cols-2 xl:p-24 p-12 bg-light-azure pb-20'>
+    <motion.div
+   
+
+
+    id='contact' className='grid max-sm:grid-cols-1 grid-cols-2 max-xl:gap-7 xl:grid-cols-2 xl:p-24 p-12 bg-light-blue pb-20'>
         <div className=' '>
             <p className='text-xs mb-7'><Dot className='inline text-navy-deep '/>GET IN TOUCH</p>
             <h1 className="xl:text-5xl text-4xl font-prata mb-7">Lets build something</h1>
             <p className='font-josefin xl:text-2xl text-xl max-sm:text-lg font-light text-grey-brown mb-12'>Have a project in mind or just want to talk? my inbox is open</p>
-            <p className='flex flex-row font-josefin'><Mail/>&nbsp;rrakhesh2005@gmail.com</p> <hr className='mb-5'/>
-            <p className='font-josefin'><i className="fa-brands fa-github "></i>&nbsp;github.com/rakheshr</p> <hr className='mb-5'/>
-            <p className='font-josefin'><i className="fa-brands fa-linkedin-in "></i>&nbsp;linkedin.com/in/rakheshr</p> <hr className='mb-5'/>
+            <p className='flex flex-row font-josefin'><Mail/>&nbsp;rakheshr2005@gmail.com</p> <hr className='mb-5'/>
+            <a href='https://github.com/rakheshr2005' className='font-josefin'><i className="fa-brands fa-github "></i>&nbsp;github.com/rakheshr2005</a> <hr className='mb-5'/>
+            <a href='https://www.linkedin.com/in/rakhesh-r-8a3406240/' className='font-josefin'><i className="fa-brands fa-linkedin-in "></i>&nbsp;rlinkedin.com/in/rakhesh-r-8a3406240/</a> <hr className='mb-5'/>
         </div>
 
-            <div className='flex justify-center items-center '>
+            <motion.div 
+            
+            initial={{opacity:0,y:200}}
+            whileInView={{opacity:1,y:0}}
+            transition={{duration:0.6,ease:'easeOut'}}
+            
+            className='flex justify-center items-center '>
                 
                     <div className='w-120 border-2 p-10 rounded-2xl'>
                             <form action="" onSubmit={sendEmail} ref={form}>
@@ -60,16 +74,16 @@ const form = useRef();
                                 <textarea name="message" id="message" placeholder='Tell Me About Your Project' className='border-2 border-grey-brown w-full xl:h-32 rounded-lg max-lg:text-xs '></textarea>
                                 <div className='flex justify-center mt-3 '>
                                     <motion.button type='submit'
-                                    whileHover={{scale:1.05,opacity:1.0,color:'white'}}
+                                    whileHover={{scale:1.05}}
                                     whileTap={{scale:0.95}}
                                     className='flex flex-row font-josefin bg-navy-deep rounded-3xl text-white xl:h-12 xl:w-1/2 p-2 max-lg:text-sm justify-center items-center'>send message <ArrowUpRight  size={13}/></motion.button>
                                 </div>
                             </form>
                     </div>
                 
-            </div>
+            </motion.div>
         
-        </div>
+        </motion.div>
     )
 }
 

@@ -8,7 +8,7 @@ function Projects(){
 
     return(
        
-    <div id='projects' className='xl:p-24 p-10 bg-light-azure xl:pb-20 '>
+    <div id='projects' className='xl:p-24 p-10 bg-light-blue xl:pb-20 '>
         <p className='text-xs mb-7'><Dot className='inline text-navy-deep '/>SELECTED WORK</p>
         
         <h1 className="text-5xl font-prata mb-7">Projects i have built</h1>

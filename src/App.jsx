@@ -8,13 +8,23 @@ import Hero from './components/section/Hero';
 import Projects from './components/section/Projects';
 import Skills from './components/section/Skills';
 
+import {motion} from 'motion/react'
+
 
 
 function App() {
   
 
   return (
-    <>
+    <motion.div
+
+    
+
+    
+
+   
+
+    >
     <Navbar/>
     <Hero/>
     <About/>
@@ -22,7 +32,7 @@ function App() {
     <Projects/>
     <Contact/>
     <Footer/>
-    </>
+    </motion.div>
   )
 }
 
